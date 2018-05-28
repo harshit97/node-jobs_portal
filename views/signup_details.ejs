@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<%- include gta_head.ejs %>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <title>Hello, world!</title>
+	<style>
+		.bodyClass {
+			padding-top : 50px;
+			padding-left : 250px;
+			padding-right : 250px;
+			padding-bottom : 50px;
+			background-color: #B71C1C;
+		}
+		body {
+			background-color: #B71C1C;
+		}
+		div.hidden
+		{
+		   display: none
+		}
+	</style>
+	<script>
+    	var _data = {};
+    	var _data = {
+      "ProductOperation’sTeam": {
+        "CatalogueAnalyst": "Catalogue Analyst",
+        "ContentWriter": "Content Writer",
+        "ContentEditor": "Content Editor",
+        "CustomerCareExecutive": "Customer Care Executive",
+        "CustomerCare-AM": "Customer Care-AM"
+      },
+      "BusinessDevelopmentandSales": {
+        "BD-AssistantManager": "BD-Assistant Manager",
+        "BD-Manager": "BD-Manager",
+        "CategoryManager": "Category Manager"
+      },
+      "SoftwareProductTeam": {
+        "SoftwareDeveloper": " Software Developer",
+        "SoftwareEngineer": "Software Engineer"
+      },
+      "Marketing": {
+        "OnlineMarketing": "Online Marketing",
+        "Analytics": "Analytics"
+      },
+      "TechPositions": {
+        "JavaDeveloper-SeniorLead": "Java Developer-Senior Lead",
+        "WebDeveloper": "Web Developer",
+        "ProductManager": "Product Manager",
+        "Devops": "Devops",
+        "QA": "QA",
+        "ABAP": "ABAP"
+      },
+      "SalesPositions": {
+        "TechSales": "Tech Sales",
+        "AM-Sourcing": "AM-Sourcing"
+      },
+      "FinancePositions": {
+        "DirectorOfFinance": "Director of Finance"
+      }
+    	};
+  	</script>	
+  </head>
+  <body>
+  <%- include gta_body.ejs %>
+	<div class = "bodyClass">
+		<div class="card mb-3">
+			<div class="card-body text-center">
+				<h3 class="card-title"><u>Enter your details : </u></h3>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<form action="" method="post" enctype="multipart/form-data">
+					<div class="form-group text-center hidden" id="invalidPin">
+						<div class="alert alert-danger" role="alert">
+							Please enter a valid Pincode !
+				  		</div>
+					</div>
+					<div class="form-group">
+						<div class="form-row">
+							<div class="col">
+								<input type="text" class="form-control" placeholder="Full name" name="full_name" id="full_name">
+							</div>
+							<div class="col">
+								
+							</div>
+						</div>
+					</div>	
+					
+					<div class="form-group">
+						<div class="form-row">
+							<div class="col">
+								<select id="inputGender" class="form-control" name="gender">
+									<option selected disabled>Gender</option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+							</div>
+							<div class="col">
+								<input id="datepicker" placeholder="Date of Birth" name ="dateofbirth"/>
+							</div>
+						</div>
+					</div>	
+					<div class="form-group">
+						<div class="form-row">
+							<div class="col-3">
+								<input type="number" class="form-control" placeholder="Zip" name="zip_code" id="zip_code">
+							</div>
+							<div class="col-4">
+								<input type="text" class="form-control" placeholder="City" name="city" id="city">
+							</div>
+							<div class="col-5">
+								<input type="text" class="form-control" name="state" placeholder="State" id="state">
+							</div>
+						</div>
+					</div>
+					
+					<hr>
+					
+					<h5><u>Select a suitable position : </u></h5>
+					
+					<div class="row">
+						<div class="col-6">
+					  		<select class="form-control" id="domain" name="domain">
+								<option selected disabled>-- Select Domain--</option>
+								<option value="ProductOperation’sTeam">Product Operation’s Team</option>
+								<option value="BusinessDevelopmentandSales">Business Development and Sales</option>
+								<option value="SoftwareProductTeam">Software Product Team</option>
+								<option value="Marketing">Business Development and Sales</option>
+								<option value="TechPositions">Tech Positions</option>
+								<option value="SalesPositions">Sales Positions</option>
+								<option value="FinancePositions">Finance Positions</option>
+					  		</select>
+						</div>
+						<div class="col-6">
+					  		<select class="form-control" id="position" name="position">
+								<option selected disabled>-- Select Position--</option>
+					  		</select>
+						</div>
+				  	</div>
+					
+					<hr>
+					
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Skills</label>
+						<textarea class="form-control" name="skills" rows="3"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Past Experience</label>
+						<textarea class="form-control" name="experience" rows="3"></textarea>
+					</div>	
+
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Education</label>
+						<textarea class="form-control" name="education" rows="3"></textarea>
+					</div>	
+
+					<hr>
+					
+					<div class="form-group">
+						<label for="upload_resume">Upload Resume</label>
+						<input type="file" class="form-control-file" name="upfile">
+					</div>		
+					
+					<hr>
+					
+					<div class="form-group">
+						<div class="form-row text-center">
+							<div class="col-12">
+								<button type="submit" class="btn btn-outline-success">Submit</button>
+							</div>
+						</div>	
+					</div>							
+				</form>
+			</div>
+		</div>	
+	</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+    <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+	</script>
+	<script type="text/javascript">
+    	$(document).ready(function () {
+			//Job Positions
+      		$('#domain').on('change', function (e) {
+        		var source = $(this),
+          		val = $.trim(source.val()),
+          		target = $('#position');
+        		$(target).empty();
+        		if (typeof (_data[val]) != "undefined") {
+          			var options = (typeof (_data[val]) != "undefined") ? _data[val] : {};
+          			$('<option selected disabled>-- Select Position--</option>').appendTo(target);
+          			$.each(options, function (value, index) {
+            			$('<option value="' + value + '">' + index + '</option>').appendTo(target);
+          			});
+        		}
+			});
+
+			//Pincode 
+			$('#zip_code').focusout(function() {
+        		var source = $(this),
+          		val = $.trim(source.val()),
+				  target = $('#position');
+				  
+				 $.ajax({
+					type: "GET",
+					url: "https://cors.io/?http://postalpincode.in/api/pincode/"+val,
+					dataType: "json",
+					success: processData,
+					error: function(){  alert("failed"); }
+				});
+				//$("div#invalidPin").removeClass("hidden");
+				function processData(data){
+					if (data.PostOffice==null)
+						$('div#invalidPin').removeClass('hidden');
+					else {
+						$('#city').val(data.PostOffice[0].Circle);
+						$('#state').val(data.PostOffice[0].State);
+					}
+				}
+			});
+
+    	});
+  	</script>
+  </body>
+</html>

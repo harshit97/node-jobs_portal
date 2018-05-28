@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <%- include gta_head.ejs %>
+  
+  <!--Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <title>Moglix Careers</title>
+  <style>
+    .bodyClass {
+      padding-top: 70px;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 50px;
+      background-color: #B71C1C;
+    }
+
+    body {
+      background-color: #B71C1C;
+    }
+    .google {
+      background-color: #dd4b39;
+      color: white;
+    }
+
+    .twitter {
+      background-color: #55ACEE;
+      color: white;
+    }
+    .custom_btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      margin: 5px 0;
+      opacity: 0.85;
+      display: inline-block;
+      font-size: 18px;
+      line-height: 20px;
+      text-decoration: none; /* remove underline from anchors */
+    }
+    
+    .custom_btn:hover {
+      opacity: 1;
+      color : #ffffff;
+      text-decoration: none;
+    }
+
+    .g_imag {
+      position: relative;
+      left: 15;
+    }
+
+    .l_imag {
+      position: relative;
+      right: 15;
+    }    
+    
+  </style>
+</head>
+
+<body>
+  <%- include gta_body.ejs %>
+  <div class="bodyClass">
+    <div class="card-group">
+      <div class="card text-center">
+        <img class="card-img-top" src="https://cdnx1.moglix.com/assets/img/logo.svg" alt="Card image cap">
+        <div class="card-body">
+          <br>
+          <br>
+          <h3 class="card-title">Welcome to Moglix Careers !</h5>
+            <p class="card-text">Apply for a job at India's fastest growing B2B e-commerce company !</p>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <br>
+          <br>
+          <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+          <% } %>
+          <h4 class="card-title">Please sign in</h4>
+          <form action="/login" method="post" showvalid>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" class="form-control" name="email" id="email">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="password" class="form-control" name="password" required minlength="6" maxlength="18">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me" value="yes">
+              <label class="form-check-label" for="remember_me">Remember me</label>
+              <p class="float-right">
+              <a href="/forgotPassword">forgot password?</a>
+              </p>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+
+            <p class="float-right">
+              <br>
+              Need an account?
+              <a href="/signup">Sign up</a>
+            </p>
+          </form>
+          <hr>
+          <div class="row">
+
+            <div class="col-6">
+              <a href="/auth/google" class="custom_btn">
+                <img src="signin_buttons/google.png" alt="google_button" width="250" class="g_imag" >
+              </a>
+            </div>
+            <div class="col-6">
+              <a href="/auth/linkedin" class="custom_btn float-left">
+                <img src="signin_buttons/linkedin.png" alt="linkedin_button" width="250" class="l_imag" height="53">
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!--<script src="index.js"></script>-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript">
+      $(document).ready(function getCookie() {
+        var name = "rememberMe" + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                console.log(c.substring(name.length, c.length));
+                document.getElementById("email").value = c.substring(name.length, c.length);
+            } 
+        }
+    });    
+  </script>
+</body>
+
+</html>

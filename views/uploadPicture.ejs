@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%- include gta_head.ejs %>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <title>Upload Picture</title>
+    <style>
+        .bodyClass {
+            padding-top: 50px;
+            padding-left: 450px;
+            padding-right: 450px;
+            padding-bottom: 50px;
+            background-color: #B71C1C;
+        }
+
+        body {
+            background-color: #B71C1C;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include gta_body.ejs %>
+    <div class="bodyClass">
+        <div class="card mb-3">
+            <div class="card-body text-center">
+                <h3 class="card-title">
+                    <u>Upload Photo</u>
+                </h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label for="upload_resume">Browse for a picture </label>
+                        <input type="file" class="form-control-file" name="upfile">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-row text-center">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-outline-success">SAVE</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="index.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+
+</body>
+
+</html>

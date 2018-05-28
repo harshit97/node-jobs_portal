@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <title>
+    <%= user.details.full_name %>'s Profile
+  </title>
+
+  <style>
+    .bodyClass {
+      padding-top: 70px;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 50px;
+      background-color: #B71C1C;
+    }
+
+    body {
+      background-color: #B71C1C;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bodyClass">
+    <div class="card mb-3">
+      <div class="card-body text-center">
+        <h3 class="card-title">
+          <u>Your profile has been updated successfully !</u>
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body text-center">
+            <% if(user.picture.profile_picture_name) { %>
+              <div class="img_format">
+                <img src="profile_pictures/<%=user.picture.profile_picture_name%>" alt="profileImage" class="rounded-circle img-fluid" height="250"
+                  width="250">
+              </div>
+              <% } else{ %>
+                <div class="img_format">
+                  <img src="http://loganfuneralchapel.com/wp-content/uploads/2017/01/generic-profile-avatar_352864.jpg" alt="profileImage"
+                    class="rounded-circle img-fluid" height="250" width="250">
+                </div>
+                <% } %>
+                  <br>
+                  <br>
+                  <h4 class="card-title">
+                    <u>
+                      <%= user.details.full_name %>
+                    </u>
+                  </h4>
+                  <p class="card-text">
+                    <%= user.local.email%>
+                  </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"><u>Full Name :  </u> <%= user.details.full_name%></h5>
+            <h3 class="card-title"><u>Applying for :  </u><%= user.details.domain%>---<%= user.details.position%></h5>
+            <h3 class="card-title"><u>Gender :  </u> <%= user.details.gender%></h5>
+            <h3 class="card-title"><u>Date of Birth :  </u> <%= user.details.dateofbirth%></h5>
+            <h3 class="card-title"><u>City :  </u> <%= user.details.city%> </h5>
+            <h3 class="card-title"><u>State :  </u> <%= user.details.state%> </h5>
+            <h3 class="card-title"><u>Zip Code :  </u>  <%= user.details.zip_code%></h5>
+            <h3 class="card-title"><u>Skills :  </u> <%= user.details.skills%></h5>
+            <h3 class="card-title"><u>Experience :  </u> <%= user.details.experience%></h5>
+            <h3 class="card-title"><u>Education :  </u> <%= user.details.education%></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
