@@ -4,11 +4,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<%- include gta_head.ejs %>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    <title>Hello, world!</title>
+    <title>Profile Info</title>
 	<style>
 		.bodyClass {
 			padding-top : 50px;
@@ -67,7 +67,7 @@
   	</script>	
   </head>
   <body>
-  <%- include gta_body.ejs %>
+  
 	<div class = "bodyClass">
 		<div class="card mb-3">
 			<div class="card-body text-center">
@@ -163,11 +163,7 @@
 					</div>	
 
 					<hr>
-					
-					<div class="form-group">
-						<label for="upload_resume">Upload Resume</label>
-						<input type="file" class="form-control-file" name="upfile">
-					</div>		
+						
 					
 					<hr>
 					
@@ -199,7 +195,8 @@
       		$('#domain').on('change', function (e) {
         		var source = $(this),
           		val = $.trim(source.val()),
-          		target = $('#position');
+				  target = $('#position');
+				console.log("Value : "+val);
         		$(target).empty();
         		if (typeof (_data[val]) != "undefined") {
           			var options = (typeof (_data[val]) != "undefined") ? _data[val] : {};

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  <%- include gta_head.ejs %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -29,7 +28,7 @@
 </head>
 
 <body>
-  <%- include gta_body.ejs %>
+  
   <div class="bodyClass">
     <div class="card mb-3">
       <div class="card-body text-center">
@@ -64,35 +63,39 @@
               <%= user.local.email%>
             </p>
 
+            <a href="/profile/uploadResume" class="btn btn-outline-primary">Upload Resume</a> &nbsp;
             <a href="/profile/uploadPicture" class="btn btn-outline-primary">Upload Photo</a> &nbsp;
             <a href="/profile/update" class="btn btn-outline-secondary">Update Profile</a> &nbsp;
             <a href="/logout" class="btn btn-outline-danger">Logout</a> &nbsp;
+          </div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-body text-center">
+            <% if(user.resume.resume_location) { %>
+              <a href="#" class="btn btn-outline-secondary">Browse for jobs</a> 
+            <% } else{ %>
+              <ul class="list-group">
+                <li class="list-group-item">Upload your resume to apply for jobs !</li>
+              </ul>
+            <% } %>
           </div>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Full Name : </h5>
-            <p class="card-text"><%= user.details.full_name%></p>
-            <h5 class="card-title">Applying for : </h5>
-            <p class="card-text"><%= user.details.domain%>---<%= user.details.position%></p>
-            <h5 class="card-title">Gender : </h5>
-            <p class="card-text"><%= user.details.gender%></p>
-            <h5 class="card-title">Date of Birth : </h5>
-            <p class="card-text"><%= user.details.dateofbirth%></p>
-            <h5 class="card-title">City : </h5>
-            <p class="card-text"><%= user.details.city%></p>
-            <h5 class="card-title">State : </h5>
-            <p class="card-text"><%= user.details.state%></p>
-            <h5 class="card-title">Zip Code : </h5>
-            <p class="card-text"><%= user.details.zip_code%></p>
-            <h5 class="card-title">Skills : </h5>
-            <p class="card-text"><%= user.details.skills%></p>
-            <h5 class="card-title">Experience : </h5>
-            <p class="card-text"><%= user.details.experience%></p> 
-            <h5 class="card-title">Education : </h5>
-            <p class="card-text"><%= user.details.education%></p>              
+            <ul class="list-group">
+                <li class="list-group-item"><b><u>Full Name</u> :</b> <%= user.details.full_name%></li>
+                <li class="list-group-item"><b><u>Applying for</u> :</b> <%= user.details.position%>, <%= user.details.domain%></li>
+                <li class="list-group-item"><b><u>Gender</u> :</b> <%= user.details.gender%></li>
+                <li class="list-group-item"><b><u>Date of Birth</u> :</b> <%= user.details.dateofbirth%></li>
+                <li class="list-group-item"><b><u>Location</u> :</b> <%= user.details.city%>, <%= user.details.state%></li>
+                <li class="list-group-item"><b><u>Pincode</u> :</b> <%= user.details.zip_code%></li>
+                <li class="list-group-item"><b><u>Skills</u> :</b> <%= user.details.skills%></li>
+                <li class="list-group-item"><b><u>Experience</u> :</b> <%= user.details.experience%></li>
+                <li class="list-group-item"><b><u>Education</u> :</b> <%= user.details.education%></li>
+            </ul>            
           </div>
         </div>
       </div>

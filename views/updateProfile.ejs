@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<%- include gta_head.ejs %>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
@@ -66,7 +65,6 @@
   	</script>
   </head>
   <body>
-  	<%- include gta_body.ejs %>
 	<div class = "bodyClass">
 		<div class="card mb-3">
 			<div class="card-body text-center">
@@ -175,12 +173,7 @@
 						<textarea class="form-control" name="education" rows="3"><%=user.details.experience%></textarea>
 					</div>	
 
-					<hr>
-					
-					<div class="form-group">
-						<label for="upload_resume">Update Resume</label>
-						<input type="file" class="form-control-file" name="upfile">
-					</div>		
+					<hr>	
 					
 					<hr>
 					
@@ -209,7 +202,7 @@
 	<script type="text/javascript">
     	$(document).ready(function () {
 			$('#domain').find('option[id=<%=user.details.domain%>]').attr('selected','selected');
-			
+			console.log("sfjke" +'<%=user.details.domain%>')
 			var source = $('#domain'),
 			val = $.trim(source.val()),
 			target = $('#position');

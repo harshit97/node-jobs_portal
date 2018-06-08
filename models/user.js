@@ -26,10 +26,12 @@ var userSchema = mongoose.Schema({
         skills : String, 
         experience : String,
         education : String,
-        resume_location : String,
     },
     picture : {
         profile_picture_name : String
+    },
+    resume : {
+        resume_location : String
     }
 });
 

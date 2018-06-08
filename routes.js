@@ -37,6 +37,10 @@ module.exports = function(app, passport) {
         console.log("------------\n", req.file);
     });*/
 
+    //Resume Upload Route
+    app.get('/profile/uploadResume', authController.isLoggedIn, authController.getResumeUpload);
+    app.post('/profile/uploadResume', authController.isLoggedIn, authController.postResumeUpload);
+
     //Logout Route
     app.get('/logout', authController.Logout);
 
