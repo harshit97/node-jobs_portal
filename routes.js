@@ -1,4 +1,5 @@
 const authController = require('./controllers/authController');
+const jobsController = require('./controllers/jobsController');
 module.exports = function(app, passport) {
 
     module.exports.passport;
@@ -62,6 +63,15 @@ module.exports = function(app, passport) {
         successRedirect : '/profile',
         failureRedirect : '/'
     }));
+
+
+    //Jobs Routes
+    app.get('/jobs', jobsController.Index);
+    app.post('/post_new_job', jobsController.PostNewJob);
+    app.get('/all_jobs/:page_no', jobsController.ShowAllJobs);
+    app.post('/find_jobs', jobsController.FindJobs);
+    app.get('/job/:id', jobsController.FindSpecificJob);
+
 };
 
 
