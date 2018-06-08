@@ -27,7 +27,7 @@ module.exports = function(app, passport) {
     app.post('/signup/details', authController.SignUpDetailsSubmit);
 
     //Profile Routes
-    app.get('/profile', authController.isLoggedIn, authController.Profile);
+    app.get('/profile', authController.isLoggedIn, authController.ProfileCache, authController.Profile);
     app.get('/profile/update', authController.isLoggedIn, authController.ProfileUpdate);
     app.post('/profile/update', authController.isLoggedIn, authController.ProfileUpdatePost);
 

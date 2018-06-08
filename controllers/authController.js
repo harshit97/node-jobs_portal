@@ -2,10 +2,15 @@ const path = require('path');
 const md5 = require('md5');
 const User = require('../models/user');
 const nodemailerSend = require('../config/nodemailer');
+const redis = require('redis');
 var fs = require('fs');
 var ejs = require('ejs');
 var signup_email;
 var currentInfo;
+
+//Connecting to Redis Server
+const client = redis.createClient(6379);
+
 exports.Index = (req, res) => {
     res.redirect('/login');
 };
@@ -126,6 +131,12 @@ exports.SignUpDetailsSubmit = (req, res) => {
                     skills: req.body.skills,
                     experience: req.body.experience,
                     education: req.body.education
+                },
+                picture : {
+                    profile_picture_name : 'default.jpeg'
+                },
+                resume : {
+                    resume_location : 'nill'
                 }
             };
 
@@ -166,7 +177,15 @@ exports.Profile = (req, res) => {
             throw err;
         else {
             currentInfo = result;
-            console.log(req.flash('profileMessage'));
+
+            currentInfo.id = currentInfo._id;
+            delete currentInfo['_id'];
+            currentInfo = JSON.stringify(currentInfo);
+
+            //Setting Profile JSON in Redis
+            client.set(signup_email, currentInfo, 'EX', 30);
+            //END
+            console.log("\n\n\nNON CACHE : "+currentInfo+'\n\n');
             res.render('profile.ejs', {
                 user: result
             })
@@ -174,6 +193,27 @@ exports.Profile = (req, res) => {
         }
     });
 };
+
+exports.ProfileCache = (req, res, next) => {
+    client.get(signup_email, function (err, data) {
+        if (err) {
+            console.log("Redis Caching Error !");
+        }
+        else if (data != null) {
+            currentInfo = data;
+            console.log("\n\n\nREDIS CACHE : "+JSON.parse(JSON.stringify(currentInfo))+'\n\n');
+            currentInfo = JSON.parse(currentInfo);
+            console.log("CHECK JSON : ", currentInfo.details.full_name);
+
+            res.render('profile.ejs', {
+                user: currentInfo
+            })
+        } 
+        else {
+            next();
+        }
+    });
+}
 
 exports.ProfileUpdate = (req, res) => {
     res.render('updateProfile.ejs', {
@@ -227,6 +267,15 @@ exports.ProfileUpdatePost = (req, res) => {
                     nodemailerSend.signupMail('"Harshit Agarwal" <harshit.agarwal@moglix.com>', signup_email, mailSubject, htmlBodyToSend);
                     //---------------------------------------------------------
                     console.log("Updated document : ", doc);
+                    currentInfo = doc;
+
+                    currentInfo.id = currentInfo._id;
+                    delete currentInfo['_id'];
+                    currentInfo = JSON.stringify(currentInfo);
+        
+                    //Setting Profile JSON in Redis
+                    client.set(signup_email, currentInfo, 'EX', 30);
+                    //END
                 }
             });
         }

@@ -41,17 +41,10 @@
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body text-center">
-            <% if(user.picture.profile_picture_name) { %>
               <div class="img_format">
                 <img src="profile_pictures/<%=user.picture.profile_picture_name%>" alt="profileImage" class="rounded-circle img-fluid"
                 height="250" width="250">
               </div>
-            <% } else{ %>
-              <div class="img_format">
-                <img src="http://loganfuneralchapel.com/wp-content/uploads/2017/01/generic-profile-avatar_352864.jpg" alt="profileImage" class="rounded-circle img-fluid"
-                  height="250" width="250">
-              </div> 
-            <% } %>
             <br>
             <br>
             <h4 class="card-title">
@@ -72,7 +65,7 @@
         <br>
         <div class="card">
           <div class="card-body text-center">
-            <% if(user.resume.resume_location) { %>
+            <% if(user.resume.resume_location=='nill') { %>
               <a href="/jobs" class="btn btn-outline-secondary">Browse for jobs</a> 
             <% } else{ %>
               <ul class="list-group">
