@@ -85,7 +85,7 @@
 					<div class="form-group">
 						<div class="form-row">
 							<div class="col">
-								<input type="text" class="form-control" placeholder="Full name" name="full_name" id="full_name">
+								<input type="text" class="form-control" placeholder="Full name" name="full_name" id="full_name" required>
 							</div>
 							<div class="col">
 								
@@ -96,27 +96,27 @@
 					<div class="form-group">
 						<div class="form-row">
 							<div class="col">
-								<select id="inputGender" class="form-control" name="gender">
-									<option selected disabled>Gender</option>
+								<select id="inputGender" class="form-control" name="gender" required>
+									<option selected disabled value="">Gender</option>
 									<option value="Male">Male</option>
 									<option value="Female">Female</option>
 								</select>
 							</div>
 							<div class="col">
-								<input id="datepicker" placeholder="Date of Birth" name ="dateofbirth"/>
+								<input id="datepicker" placeholder="Date of Birth" name ="dateofbirth" required/>
 							</div>
 						</div>
 					</div>	
 					<div class="form-group">
 						<div class="form-row">
 							<div class="col-3">
-								<input type="number" class="form-control" placeholder="Zip" name="zip_code" id="zip_code">
+								<input type="number" class="form-control" placeholder="Zip" name="zip_code" id="zip_code" required>
 							</div>
 							<div class="col-4">
-								<input type="text" class="form-control" placeholder="City" name="city" id="city">
+								<input type="text" class="form-control" placeholder="City" name="city" id="city" required>
 							</div>
 							<div class="col-5">
-								<input type="text" class="form-control" name="state" placeholder="State" id="state">
+								<input type="text" class="form-control" name="state" placeholder="State" id="state" required>
 							</div>
 						</div>
 					</div>
@@ -127,8 +127,8 @@
 					
 					<div class="row">
 						<div class="col-6">
-					  		<select class="form-control" id="domain" name="domain">
-								<option selected disabled>-- Select Domain--</option>
+					  		<select class="form-control" id="domain" name="domain" required>
+								<option selected disabled value="">-- Select Domain--</option>
 								<option value="ProductOperation’sTeam">Product Operation’s Team</option>
 								<option value="BusinessDevelopmentandSales">Business Development and Sales</option>
 								<option value="SoftwareProductTeam">Software Product Team</option>
@@ -139,8 +139,8 @@
 					  		</select>
 						</div>
 						<div class="col-6">
-					  		<select class="form-control" id="position" name="position">
-								<option selected disabled>-- Select Position--</option>
+					  		<select class="form-control" id="position" name="position" required>
+								<option selected disabled value="">-- Select Position--</option>
 					  		</select>
 						</div>
 				  	</div>
@@ -149,17 +149,17 @@
 					
 					<div class="form-group">
 						<label for="exampleFormControlTextarea1">Skills</label>
-						<textarea class="form-control" name="skills" rows="3"></textarea>
+						<textarea class="form-control" name="skills" rows="3" required></textarea>
 					</div>
 					
 					<div class="form-group">
 						<label for="exampleFormControlTextarea1">Past Experience</label>
-						<textarea class="form-control" name="experience" rows="3"></textarea>
+						<textarea class="form-control" name="experience" rows="3" required></textarea>
 					</div>	
 
 					<div class="form-group">
 						<label for="exampleFormControlTextarea1">Education</label>
-						<textarea class="form-control" name="education" rows="3"></textarea>
+						<textarea class="form-control" name="education" rows="3" required></textarea>
 					</div>	
 
 					<hr>
@@ -200,7 +200,7 @@
         		$(target).empty();
         		if (typeof (_data[val]) != "undefined") {
           			var options = (typeof (_data[val]) != "undefined") ? _data[val] : {};
-          			$('<option selected disabled>-- Select Position--</option>').appendTo(target);
+          			$('<option selected disabled value="">-- Select Position--</option>').appendTo(target);
           			$.each(options, function (value, index) {
             			$('<option value="' + value + '">' + index + '</option>').appendTo(target);
           			});
