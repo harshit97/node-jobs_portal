@@ -10,7 +10,7 @@
  - Users have the option to update their profile anytime they want.
  - Users are sent emails on successfull sign up and profile updation.
 
-#### Tech
+### Tech
 This project uses a number of open source npm packages and projects to work properly, some of the major ones are listed below :
 
 * [ExpressJS](https://expressjs.com) - Fast NodeJS network app framework.
